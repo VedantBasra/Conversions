@@ -54,7 +54,6 @@ Then open your browser to:
 ├── main.py                   # FastAPI routes
 ├── utils.py                  # Core conversion logic
 ├── templates/                # Jinja2 + TailwindCSS HTML
-├── static/                   # Optional CSS/JS
 ├── uploads/                  # Temp storage (per-task)
 ├── processed/                # Output storage (per-task)
 ├── requirements.txt
