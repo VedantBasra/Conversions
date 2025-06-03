@@ -21,7 +21,7 @@ os.makedirs(PROCESSED_FOLDER, exist_ok=True)
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("base.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/docx", response_class=HTMLResponse)
 async def docx_form(request: Request):

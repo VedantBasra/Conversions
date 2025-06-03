@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-4xl mx-auto p-8 bg-white shadow-xl rounded-xl space-y-10">
+  <h1 class="text-3xl font-bold text-center">Technical Documentation</h1>
+  <!--<p class="text-center text-gray-600">Function descriptions, technologies used, inputs/outputs, and edge case notes.</p>-->
+
+  <div class="space-y-8">
+    <!-- Function Block -->
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">1. convert_office_to_pdf()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Convert DOCX, PPTX, or XLSX files to PDF.</li>
+        <li><strong>Libraries:</strong> LibreOffice (headless mode).</li>
+        <li><strong>Input:</strong> File path to a supported Office format.</li>
+        <li><strong>Output:</strong> PDF file path or <code>None</code> on failure.</li>
+        <li><strong>Edge Cases:</strong> Requires LibreOffice installed; may fail silently for corrupted files.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">2. convert_images_to_pdf()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Merge multiple images into a single PDF.</li>
+        <li><strong>Libraries:</strong> Pillow (PIL).</li>
+        <li><strong>Input:</strong> List of image file paths.</li>
+        <li><strong>Output:</strong> Combined PDF file path.</li>
+        <li><strong>Edge Cases:</strong> Converts non-RGB automatically; empty image list returns <code>None</code>.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">3. convert_pdf_to_images()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Render each PDF page as an image.</li>
+        <li><strong>Libraries:</strong> PyMuPDF (fitz).</li>
+        <li><strong>Input:</strong> PDF file path, output folder, base filename.</li>
+        <li><strong>Output:</strong> List of image paths and a ZIP archive path.</li>
+        <li><strong>Edge Cases:</strong> Encrypted or massive PDFs may fail or lag.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">4. extract_images_from_pdf()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Extract embedded raster images from PDFs.</li>
+        <li><strong>Libraries:</strong> PyMuPDF (fitz).</li>
+        <li><strong>Input:</strong> PDF file path, output directory, base name.</li>
+        <li><strong>Output:</strong> List of image paths and a ZIP archive path.</li>
+        <li><strong>Edge Cases:</strong> Vector images are ignored; CMYK auto-converted.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">5. convert_markdown_to_pdf()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Render a styled Markdown file to PDF.</li>
+        <li><strong>Libraries:</strong> markdown, pdfkit, wkhtmltopdf.</li>
+        <li><strong>Input:</strong> Path to a .md file.</li>
+        <li><strong>Output:</strong> Generated PDF file path.</li>
+        <li><strong>Edge Cases:</strong> Broken Markdown renders poorly.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">6. convert_html_to_pdf()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Convert .html file to PDF.</li>
+        <li><strong>Libraries:</strong> pdfkit, wkhtmltopdf.</li>
+        <li><strong>Input:</strong> HTML file path.</li>
+        <li><strong>Output:</strong> PDF output file path.</li>
+        <li><strong>Edge Cases:</strong> JavaScript may not render; requires <code>enable-local-file-access</code>.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">7. convert_image_format()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Reformat an image file to a new type (JPG, PNG, WEBP).</li>
+        <li><strong>Libraries:</strong> Pillow.</li>
+        <li><strong>Input:</strong> Input image path, output path, desired format.</li>
+        <li><strong>Output:</strong> Reformatted image path.</li>
+        <li><strong>Edge Cases:</strong> Non-RGB images auto-convert; invalid formats throw errors.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-blue-800">8. resize_image()</h2>
+      <ul class="list-disc ml-6 text-gray-800 space-y-1">
+        <li><strong>Purpose:</strong> Resize an image via fixed dimensions or a scale factor.</li>
+        <li><strong>Libraries:</strong> Pillow.</li>
+        <li><strong>Input:</strong> Image path, width/height/scale (at least one required).</li>
+        <li><strong>Output:</strong> Path to resized image.</li>
+        <li><strong>Edge Cases:</strong> Invalid input types or extreme scales cause errors.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
