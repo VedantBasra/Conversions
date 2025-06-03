@@ -73,9 +73,3 @@ You must have these installed:
 > You may need to adjust the paths to `soffice.exe` and `wkhtmltopdf.exe` in `utils.py`.
 
 ---
-
-## 📜 License
-
-MIT
-
----
