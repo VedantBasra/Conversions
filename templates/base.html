@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+  <nav class="bg-white shadow-md p-4 flex justify-center space-x-4 text-sm font-semibold">
+    <a href="/" class="text-blue-600 hover:underline">Home</a>
+    <a href="/docx" class="text-blue-600 hover:underline">DOCX</a>
+    <a href="/pptx" class="text-green-600 hover:underline">PPTX</a>
+    <a href="/xlsx" class="text-purple-600 hover:underline">XLSX</a>
+    <a href="/images-to-pdf" class="text-red-600 hover:underline">Images to PDF</a>
+    <a href="/pdf-to-images" class="text-orange-600 hover:underline">PDF to Images</a>
+    <a href="/extract-images" class="text-pink-600 hover:underline">Extract Images</a>
+    <a href="/markdown-to-pdf" class="text-gray-600 hover:underline">Markdown</a>
+    <a href="/html-to-pdf" class="text-brown-600 hover:underline">HTML</a>
+    <a href="/convert-image-format" class="text-indigo-600 hover:underline">Format</a>
+  </nav>
+  <main class="p-6">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

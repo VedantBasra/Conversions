@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-xl mx-auto p-6 bg-white shadow rounded-xl space-y-6">
+  <h1 class="text-xl font-bold">Images to PDF</h1>
+  <form action="/images-to-pdf" method="post" enctype="multipart/form-data" class="space-y-4">
+    <input type="file" name="files" accept="image/*" multiple required class="w-full border p-2 rounded">
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Convert Images</button>
+  </form>
+
+  {% if task_id and file_name %}
+  <div>
+    <a href="/download/{{ task_id }}/{{ file_name }}" class="block bg-green-600 text-white px-4 py-2 rounded text-center">Download</a>
+  </div>
+  {% endif %}
+
+  {% if error %}
+  <p class="text-red-600">{{ error }}</p>
+  {% endif %}
+</div>
+{% endblock %}

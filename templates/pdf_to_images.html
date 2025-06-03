@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-xl mx-auto p-6 bg-white shadow rounded-xl space-y-6">
+  <h1 class="text-xl font-bold">PDF to Images</h1>
+  <form action="/pdf-to-images" method="post" enctype="multipart/form-data" class="space-y-4">
+    <input type="file" name="file" accept=".pdf" required class="w-full border p-2 rounded">
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Convert PDF</button>
+  </form>
+
+  {% if task_id and image_filenames %}
+  <div class="mt-4">
+    <h2 class="font-semibold mb-2">Download Individual Pages</h2>
+    <ul class="list-disc ml-5 space-y-1">
+      {% for img in image_filenames %}
+        <li><a href="/download/{{ task_id }}/{{ img }}" class="text-blue-600 underline">{{ img }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if task_id and zip_name %}
+  <div class="mt-4">
+    <a href="/download/{{ task_id }}/{{ zip_name }}" class="inline-block bg-green-600 text-white px-4 py-2 rounded">Download All (ZIP)</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-xl mx-auto p-6 bg-white shadow rounded-xl space-y-6">
+  <h1 class="text-xl font-bold">Image Format Converter</h1>
+  <form action="/convert-image-format" method="post" enctype="multipart/form-data" class="space-y-4">
+    <input type="file" name="file" accept="image/*" required class="w-full border p-2 rounded">
+
+    <label class="block font-medium">Output Format:</label>
+    <select name="format" class="w-full border p-2 rounded" required>
+      <option value="jpg">JPG</option>
+      <option value="png">PNG</option>
+      <option value="webp">WEBP</option>
+    </select>
+
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Convert</button>
+  </form>
+
+  {% if task_id and file_name %}
+  <div>
+    <a href="/download/{{ task_id }}/{{ file_name }}" class="block bg-green-600 text-white px-4 py-2 rounded text-center">Download</a>
+  </div>
+  {% endif %}
+
+  {% if error %}
+  <p class="text-red-600">{{ error }}</p>
+  {% endif %}
+</div>
+{% endblock %}
