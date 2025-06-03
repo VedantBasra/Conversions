@@ -80,5 +80,3 @@ You must have these installed:
 MIT
 
 ---
-
-Made with ❤️ by [Vedant Basra](https://vedantbasra.com)
